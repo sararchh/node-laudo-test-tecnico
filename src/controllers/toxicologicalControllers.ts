@@ -18,7 +18,6 @@ export async function getAll(req: Request, res: Response) {
 
 export async function testStore(req: Request, res: Response) {
   try {
-    // const val = cutOffValues.Cocaetileno;
     const dataBody = req.body;
     let resultTest = "negativo";
 
