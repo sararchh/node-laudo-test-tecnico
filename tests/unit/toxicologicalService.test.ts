@@ -1,11 +1,10 @@
-import { cutOffValues } from "@/utils/cutoffValues";
 import { describe, expect, it, jest } from '@jest/globals';
 
 import { listAll, createRegister } from "@/services/toxicological/toxicologicalService";
 import toxicologicalRepository from "@/repositories/toxicologicalRepository";
 
-describe("test toxicologicalService tests", () => {
-  it("test function listAll when send data", async () => {
+describe("validate  toxicologicalService tests", () => {
+  it("validate  function listAll when send data", async () => {
 
     jest.spyOn(toxicologicalRepository, "findAll").mockImplementationOnce((): any => {
       return [
@@ -56,7 +55,7 @@ describe("test toxicologicalService tests", () => {
 
   });
 
-  it("test function listAll when not sending data", async () => {
+  it("validate  function listAll when not sending data", async () => {
 
     jest.spyOn(toxicologicalRepository, "findAll").mockImplementationOnce((): any => {
       return [];
@@ -67,7 +66,7 @@ describe("test toxicologicalService tests", () => {
 
   });
 
-  it("test function createRegister", async () => {
+  it("validate  function createRegister", async () => {
 
     const obj = {
       "_id": "642615df92c9e18ecef32a6b",
