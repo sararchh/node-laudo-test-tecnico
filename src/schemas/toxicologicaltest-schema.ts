@@ -1,7 +1,7 @@
 import * as Yup from "yup";
 
 export const toxicologicalTestSchema = Yup.object().shape({
-    codigo_amostra: Yup.string().required('Código da amostra é obrigatório'),
+    codigo_amostra: Yup.string().max(8).required('Código da amostra é obrigatório'),
     Cocaína: Yup.number().typeError("Valor Cocaína deve ser um número ex.: 0.123").required('Valor Cocaína é obrigatório'),
     Anfetamina: Yup.number().typeError("Valor Anfetamina deve ser um número ex.: 0.123").required('Valor Anfetamina é obrigatório'),
     Metanfetamina: Yup.number().typeError("Valor Metanfetamina deve ser um número ex.: 0.123").required('Valor Metanfetamina é obrigatório'),

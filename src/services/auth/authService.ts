@@ -29,8 +29,6 @@ export async function autenticatedUser(email: string, password: string) {
   return user;
 }
 
-
-
 async function findUserByMail(email: string) {
   const userExists = await authRepository.findByEmail(email);
 

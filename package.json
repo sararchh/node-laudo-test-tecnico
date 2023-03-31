@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development tsx watch ./src/server.ts",
     "start": "node dist/server.js",
+    "test": "cross-env NODE_ENV=test jest --passWithNoTests --runInBand",
     "build": "rm -rf dist && tsup ./src",
     "reinstall-deps": "rm -rf node_modules yarn.lock && yarn"
   },
