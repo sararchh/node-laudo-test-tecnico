@@ -2,14 +2,14 @@ import dotenv from 'dotenv';
 dotenv.config();
 import mongoose, { ConnectOptions } from 'mongoose';
 
-const CONNECTION_URL =  `${process.env.MONGO_FULL_URL}`;
+const CONNECTION_URL = `${process.env.MONGO_FULL_URL}`;
 
 type ConnectionOptionsExtend = {
   useNewUrlParser: boolean
   useUnifiedTopology: boolean
 }
 
-const options: ConnectOptions & ConnectionOptionsExtend = {
+const options: ConnectOptions & ConnectionOptionsExtend | any = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }
