@@ -11,7 +11,7 @@
             "description": "Local server"
         },
         {
-            "url": "http://localhost:3332/",
+            "url": "https://node-laudo.onrender.com/",
             "description": "Deploy server"
         }
     ],

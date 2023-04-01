@@ -20,6 +20,9 @@ npm i
 ```bash
 APP_SECRET=
 MONGO_FULL_URL=
+
+MONGO_INITDB_ROOT_USERNAME=
+MONGO_INITDB_ROOT_PASSWORD=
 ```
 4. Execute server
 ```bash

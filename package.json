@@ -13,6 +13,9 @@
   "keywords": [],
   "author": "Sara Rocha de Oliveira",
   "license": "ISC",
+  "engines": {
+    "node": "14.20.1"
+  },
   "dependencies": {
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
