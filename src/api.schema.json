@@ -1,0 +1,410 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "version": "1.0.0",
+        "title": "Node LAUDO",
+        "description": "Node LAUDO API"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:4000/",
+            "description": "Local server"
+        },
+        {
+            "url": "http://localhost:3332/",
+            "description": "Deploy server"
+        }
+    ],
+    "paths": {
+        "/": {
+            "get": {
+                "tags": [
+                    "v1"
+                ],
+                "summary": "Status do serviço",
+                "responses": {
+                    "200": {
+                        "description": "Serviço em Operação",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Service in operating 🚀"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Serviço offline"
+                    }
+                }
+            }
+        },
+        "/sign-in": {
+            "post": {
+                "tags": [
+                    "v1"
+                ],
+                "description": "Session SignIn",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Data user",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "email": {
+                                    "type": "string",
+                                    "example": "name@mail.com"
+                                },
+                                "password": {
+                                    "type": "string",
+                                    "example": "12345678"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success Authentication",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Fulano da Silva"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "example": "name@mail.com"
+                                        },
+                                        "token": {
+                                            "type": "string",
+                                            "example": "asdasdas7d6as6dasd7a6s7dsadasd7asd7asdas9d0as"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid parameters",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Erro ao Realizar Autenticação"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/sign-up": {
+            "post": {
+                "tags": [
+                    "v1"
+                ],
+                "description": "Session SignUp",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Data user",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "usuário 001"
+                                },
+                                "email": {
+                                    "type": "string",
+                                    "example": "name@mail.com"
+                                },
+                                "password": {
+                                    "type": "string",
+                                    "example": "12345678"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Success Login",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Fulano da Silva"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "example": "name@mail.com"
+                                        },
+                                        "token": {
+                                            "type": "string",
+                                            "example": "asdasdas7d6as6dasd7a6s7dsadasd7asd7asdas9d0as"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid parameters",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Ocorreu um erro, verifique e tente novamente."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/test/all": {
+            "get": {
+                "tags": [
+                    "v1"
+                ],
+                "description": "Search Toxicological",
+                "responses": {
+                    "200": {
+                        "description": "Success Search Toxicological",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "_id": {
+                                                "type": "string",
+                                                "example": "642615df92c9e18ecef32a6b"
+                                            },
+                                            "result": {
+                                                "type": "string",
+                                                "example": "negativo"
+                                            },
+                                            "userId": {
+                                                "type": "string",
+                                                "example": "642615c492c9e18ecef32a68"
+                                            },
+                                            "codigo_amostra": {
+                                                "type": "string",
+                                                "example": "02383322"
+                                            },
+                                            "Cocaína": {
+                                                "type": "number",
+                                                "example": "0.678"
+                                            },
+                                            "Anfetamina": {
+                                                "type": "number",
+                                                "example": "0.1"
+                                            },
+                                            "Metanfetamina": {
+                                                "type": "number",
+                                                "example": "0.1"
+                                            },
+                                            "MDA": {
+                                                "type": "number",
+                                                "example": "0.1"
+                                            },
+                                            "MDMA": {
+                                                "type": "number",
+                                                "example": "0"
+                                            },
+                                            "THC": {
+                                                "type": "number",
+                                                "example": "0.1"
+                                            },
+                                            "Morfina": {
+                                                "type": "number",
+                                                "example": "0.1"
+                                            },
+                                            "Codeína": {
+                                                "type": "number",
+                                                "example": "0.1"
+                                            },
+                                            "Heroína": {
+                                                "type": "number",
+                                                "example": "0.1"
+                                            },
+                                            "Benzoilecgonina": {
+                                                "type": "number",
+                                                "example": "0"
+                                            },
+                                            "Cocaetileno": {
+                                                "type": "number",
+                                                "example": "0"
+                                            },
+                                            "Norcocaína": {
+                                                "type": "number",
+                                                "example": "0"
+                                            },
+                                            "createdAt": {
+                                                "type": "string",
+                                                "example": "2023-03-30T23:06:07.666Z"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid parameters",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Ocorreu um erro, verifique e tente novamente."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/test/toxicological": {
+            "post": {
+                "tags": [
+                    "v1"
+                ],
+                "description": "Create test toxicological",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Data Test toxicological",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "codigo_amostra": {
+                                    "type": "string",
+                                    "example": "02383322"
+                                },
+                                "Cocaína": {
+                                    "type": "number",
+                                    "example": "0.678"
+                                },
+                                "Anfetamina": {
+                                    "type": "number",
+                                    "example": "0.1"
+                                },
+                                "Metanfetamina": {
+                                    "type": "number",
+                                    "example": "0.1"
+                                },
+                                "MDA": {
+                                    "type": "number",
+                                    "example": "0.1"
+                                },
+                                "MDMA": {
+                                    "type": "number",
+                                    "example": "0"
+                                },
+                                "THC": {
+                                    "type": "number",
+                                    "example": "0.1"
+                                },
+                                "Morfina": {
+                                    "type": "number",
+                                    "example": "0.1"
+                                },
+                                "Codeína": {
+                                    "type": "number",
+                                    "example": "0.1"
+                                },
+                                "Heroína": {
+                                    "type": "number",
+                                    "example": "0.1"
+                                },
+                                "Benzoilecgonina": {
+                                    "type": "number",
+                                    "example": "0"
+                                },
+                                "Cocaetileno": {
+                                    "type": "number",
+                                    "example": "0"
+                                },
+                                "Norcocaína": {
+                                    "type": "number",
+                                    "example": "0"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success create toxicological",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Código da Amostra": {
+                                            "type": "string",
+                                            "example": "02383322"
+                                        },
+                                        "Resultado": {
+                                            "type": "string",
+                                            "example": "positivo"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid parameters",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Ocorreu um erro, verifique e tente novamente."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
