@@ -38,6 +38,12 @@ npm run  build
 npm start
 ```
 
+## Docker
+
+```bash
+docker-compose up
+```
+
 ## Routes
 
 Necessary information in the body of each request
